@@ -1,0 +1,15 @@
+.DS_Store
+
+.cache
+dist
+tmp
+
+node_modules
+npm-debug.log*
+
+.idea
+.vscode/*
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
