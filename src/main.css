@@ -1,3 +1,14 @@
 * {
     font-family: 'Roboto', sans-serif;
 }
+
+.clock-fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    padding: 8px 18px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    opacity: 0.75;
+}

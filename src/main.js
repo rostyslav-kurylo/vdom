@@ -2,25 +2,30 @@ import createElement from './vdom/createElement';
 import render from './vdom/render';
 import mount from './vdom/mount';
 
-const app = createElement('div', {
-    attrs: {
-        id: 'main',
-    },
-    children: [
-        'image title',
-        createElement('br'),
-        createElement('img', {
-            attrs: {
-                src: 'https://placeimg.com/640/480/arch',
-                title: 'image',
-                width: 640,
-                height: 480
-            }
-        })
-    ]
-});
-
+let currentTime = '';
 const mountTarget = document.getElementById('rootApp');
+let app = createElement('div');
 
-const renderedApp = render(app);
-mount(renderedApp, mountTarget);
+const updateTime = () => {
+    currentTime = new Date().toLocaleTimeString();
+};
+
+setInterval(() => {
+    updateTime();
+    app = createElement('div', {
+        attrs: {
+            id: 'main',
+        },
+        children: [
+            createElement('div', {
+                attrs: {
+                    class: 'clock-fixed'
+                },
+                children: [currentTime]
+            })
+        ]
+    });
+
+    mount(render(app), mountTarget);
+}, 1000);
+
